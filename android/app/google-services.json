@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "744981745823",
+    "project_id": "kumbhar-reshimgath",
+    "storage_bucket": "kumbhar-reshimgath.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744981745823:android:29c2c8dd616944c16c92aa",
+        "android_client_info": {
+          "package_name": "com.kumbhar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744981745823-ituol0jd8d9g2tnel20kdvdhbhd7f4je.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kumbhar",
+            "certificate_hash": "3d73583ef7da3fa127cde40d2a5124520ff792b0"
+          }
+        },
+        {
+          "client_id": "744981745823-cr9cvk2ch5cbb8khn01u5it4c9kmni4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkJczx2qwHHfeqy2RNZJXNsspKXxY9nkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744981745823-cr9cvk2ch5cbb8khn01u5it4c9kmni4r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
