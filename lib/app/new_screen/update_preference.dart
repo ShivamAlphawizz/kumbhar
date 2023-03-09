@@ -1478,7 +1478,7 @@ class _UpdatePartnerState extends State<UpdatePartner> {
                                 },
                                 showSearchBox: true,
                                 filterFn: (instance, filter){
-                                  if(instance.name!.contains(filter)){
+                                  if(instance.name!.toLowerCase().contains(filter)){
                                     print("filer value here" + filter.toString());
                                     return true;
                                   }
@@ -1620,7 +1620,7 @@ class _UpdatePartnerState extends State<UpdatePartner> {
                                       },
                                       showSearchBox: true,
                                       filterFn: (instance, filter){
-                                        if(instance.name!.contains(filter)){
+                                        if(instance.name!.toLowerCase().contains(filter)){
                                           print("filer value here" + filter.toString());
                                           return true;
                                         }

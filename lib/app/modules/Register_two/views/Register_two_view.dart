@@ -115,6 +115,7 @@ class _Register_two_viewState extends State<Register_two_view> {
       ],
     );
   }
+  TextEditingController searchController = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState
@@ -483,7 +484,7 @@ class _Register_two_viewState extends State<Register_two_view> {
                               },
                               showSearchBox: true,
                               filterFn: (instance, filter){
-                                if(instance.nicename!.contains(filter)){
+                                if(instance.nicename!.toLowerCase().contains(filter)){
                                   print("filer value here" + filter.toString());
                                   return true;
                                 }
@@ -491,6 +492,8 @@ class _Register_two_viewState extends State<Register_two_view> {
                                   return false;
                                 }
                               },
+                              searchBoxController: searchController,
+
                               popupItemBuilder: (context,CountryModel item,bool isSelected){
                                 return Container(
                                   margin: EdgeInsets.symmetric(horizontal: 8),
@@ -578,8 +581,6 @@ class _Register_two_viewState extends State<Register_two_view> {
                       boxHeight(59),
                     ],),
                 ),
-
-
               ],
             )
         ),

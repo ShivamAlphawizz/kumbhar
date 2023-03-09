@@ -480,7 +480,7 @@ class _Register_five_viewState extends State<Register_five_view> {
                               },
                               showSearchBox: true,
                               filterFn: (instance, filter){
-                                if(instance.name!.contains(filter)){
+                                if(instance.name!.toLowerCase().contains(filter)){
                                   print("filer value here" + filter.toString());
                                   return true;
                                 }
@@ -605,7 +605,7 @@ class _Register_five_viewState extends State<Register_five_view> {
                               },
                               showSearchBox: true,
                               filterFn: (instance, filter){
-                                if(instance.name!.contains(filter)){
+                                if(instance.name!.toLowerCase().contains(filter)){
                                   print("filer value here" + filter.toString());
                                   return true;
                                 }
