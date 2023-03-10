@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dimension/dimension.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:indianmilan/app/global_widgets/textEnter.dart';
 import 'package:indianmilan/app/global_widgets/textfield_ui.dart';
@@ -38,6 +39,30 @@ class _ForgetScreenState extends State<ForgetScreen> {
   TextEditingController emailCon = new TextEditingController();
   TextEditingController mobileCon = new TextEditingController();
   TextEditingController passCon = new TextEditingController();
+
+    forgotPassword()async{
+      var headers = {
+        'Cookie': 'ci_session=c780fbe6e21bde25f4b86f19e0e9979ce789e709'
+      };
+      var request = http.MultipartRequest('POST', Uri.parse('${baseUrl}forgotPassword'));
+      request.fields.addAll({
+        'email': emailCon.text
+      });
+      request.headers.addAll(headers);
+      http.StreamedResponse response = await request.send();
+      if (response.statusCode == 200) {
+        var finalresult  = await response.stream.bytesToString();
+        final jsonResponse = json.decode(finalresult);
+        setState(() {
+          Fluttertoast.showToast(msg: "${jsonResponse['message']}");
+        });
+        Navigator.pop(context);
+      }
+      else {
+        print(response.reasonPhrase);
+      }
+
+    }
 
   Widget getTitle() {
     return Container(
@@ -175,14 +200,23 @@ class _ForgetScreenState extends State<ForgetScreen> {
                     Center(
                       child: InkWell(
                         onTap: (){
-                          if(validateEmail(emailCon.text, "Please Enter Email","Please Enter Valid Email")!=null){
-                            setSnackbar(validateEmail(emailCon.text, "Please Enter Email","Please Enter Valid Email").toString(), context);
-                            return;
-                          }
-
+                          // if(validateEmail(emailCon.text, "Please Enter Email","Please Enter Valid Email")!=null){
+                          //   setSnackbar(validateEmail(emailCon.text, "Please Enter Email","Please Enter Valid Email").toString(), context);
+                          //   return;
+                          // }
                           setState(() {
                             loading = true;
                           });
+                          if(emailCon.text.isEmpty || !emailCon.text.contains('@')){
+                            Fluttertoast.showToast(msg: "Please enter correct email");
+                            setState(() {
+                              loading = false;
+                            });
+                          }
+                          else{
+                            forgotPassword();
+                          }
+
                         //  login();
                         },
                         child: Container(
